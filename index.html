@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Моя домашня сторінка</title>
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -17,6 +23,20 @@
           <a href="contact.html">Contact</a>
         </li>
       </ul>
+    </nav>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <nav>
+      <a class="heart" href="#"><i class="fa-regular fa-heart"></i></a>
+      <a class="cart" href="cart.html"
+        ><i class="fa-solid fa-cart-shopping"></i
+      ></a>
+      <a class="user" href="#!"><i class="fa-regular fa-user"></i></a>
     </nav>
     <header>
       <h1>Ласкаво просимо до мого сайту!</h1>
@@ -41,7 +61,7 @@
       <section>
         <div>
           <h2>About</h2>
-          <ul>
+          <ul class="list-unstyled">
             <li><a href="#">Services</a></li>
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Pricing</a></li>
@@ -49,20 +69,18 @@
             <li><a href="#">Careers</a></li>
           </ul>
         </div>
-
         <div>
           <h2>Resources</h2>
-          <ul>
+          <ul class="list-unstyled">
             <li><a href="#">Docs</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">eBooks</a></li>
             <li><a href="#">Webinars</a></li>
           </ul>
         </div>
-
         <div>
           <h2>Contact</h2>
-          <ul>
+          <ul class="list-unstyled">
             <li><a href="#">Help</a></li>
             <li><a href="#">Sales</a></li>
             <li>
@@ -71,9 +89,30 @@
           </ul>
         </div>
       </section>
-
+      <section class="footer-social">
+        <ul class="list-unstyled">
+          <li>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </li>
+        </ul>
+      </section>
       <section>
-        <ul>
+        <ul class="list-unstyled">
           <li><a href="#">Terms &amp; Conditions</a></li>
           <li>
             <a href="#">Privacy Policy</a>
@@ -83,5 +122,9 @@
       </section>
       <a href="https://www.google.com.ua/" target="_blank">Google</a>
     </footer>
+    <script
+      src="https://kit.fontawesome.com/6bb059f205.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
