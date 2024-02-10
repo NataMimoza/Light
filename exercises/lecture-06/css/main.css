@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 25px;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==== 2 завдання============= */
+
+a {
+  text-decoration: none;
+  color: indigo;
+}
+
+a:visited {
+  color: gold;
+}
+
+a:hover {
+  color: salmon;
+}
+
+a:active {
+  color: red;
+}
+
+a:focus {
+  color: orange;
+}
+/* ===== 3 завдання===================== */
+input:in-range {
+  background-color: rgba(3, 64, 3, 0.25);
+}
+
+input:out-of-range {
+  background-color: rgba(230, 32, 32, 0.25);
+}
+
+/* ===== 4 завдання===================== */
+li:first-child {
+  color: orange;
+}
+
+/* ===== 5 завдання===================== */
+ul :first-of-type {
+  color: orange;
+}
+
+/* ===== 6 завдання===================== */
+ul :last-of-type {
+  color: orange;
+}
+
+/* ========= 7 завдання===================== */
+li:not(.first-item) {
+  color: orange;
+}
+
+li:not(.first-item):not(:last-of-type) {
+  background: yellow;
+  color: black;
+}
+
+/* ========= 8 завдання=============== */
+ol:nth-child(2) {
+  color: orange;
+}
+
+ol:nth-child(even) {
+  color: orange;
+}
+
+ol:nth-child(2n + 6) {
+  color: orange;
+}
+
+/* ========= 9, 10 завдання=============== */
+.ua::before {
+  content: "Слава ";
+}
+
+.hero::after {
+  content: " Слава";
+}
+
+/* ========= 11 завдання=============== */
+.cont::before {
+  content: "\0A7";
+}
