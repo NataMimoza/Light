@@ -1,38 +1,51 @@
+/* 2. Обчислити ширину елемента .box */
 .box {
   width: 300px;
   padding: 10px;
   border: dashed 2px green;
+  /* Total width: 300px +(padding 2x10px) +(border 2x2px)=324px */
 }
 
+/* 3. Обчислити ширину і висоту елемента .first-box */
 .first-box {
   width: 200px;
   height: 100px;
   border: 8px solid blue;
   padding: 20px;
   background: yellow;
+  /* Total width: 200px +(padding 2x20px) +(border 2x8px)=256px;
+     Total height: 100px + (padding 2x20px) +(border 2x8px)=156px */
 }
 
+/* 4. Обчислити ширину і висоту елемента .second-box */
 .second-box {
   width: 200px;
   height: 100px;
   border: 8px solid blue;
   background: yellow;
+  /* Total width: 200px +(border 2x8px)=216px;
+     Total height: 100px + (border 2x8px)=116px */
 }
 
+/* 5. Обчислити ширину елемента div */
 div {
   box-sizing: content-box;
   width: 200px;
   border: 8px solid blue;
   padding: 20px;
   background: yellow;
+  /* Total width: 200px, оскільки є значення content-box, то border та padding додаються зовні */
 }
 
+/* 6. Обчислити ширину контенту елемента div */
 div {
   box-sizing: border-box;
   width: 200px;
   border: 8px solid blue;
   padding: 20px;
   background: yellow;
+  /* Total width: 200px - (padding 2x20px) - (border 2x8px)=144px, оскільки є значення border-box, 
+  то border та padding віднімаються */
 }
 
 #example1 {
@@ -47,10 +60,8 @@ div {
   background-clip: content-box;
 }
 
-h1 {
-  display: inline-block;
-}
-
 h1 span {
-  display: block;
+  display: inline-block;
+  width: min-content;
+  ;
 }
