@@ -13,16 +13,17 @@ background: blueviolet, розташуйте його зверху та злів
 .relative-position {
   position: relative;
   background: red;
-  top: -100px;
+  top: 130px;
   left: 130px;
 }
 
 .absolute-position {
   position: absolute;
   background-color: blueviolet;
-  top: 0;
+  top: 30px;
   left: 30px;
 }
+
 /* Що потрібно додати до правила p:nth-of-type(1) , щоб змінити порядок 
   відображення першого абзацу у стеку розташування елементів.  */
 p:nth-of-type(1) {
