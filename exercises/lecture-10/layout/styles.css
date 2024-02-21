@@ -1,0 +1,28 @@
+/* Зробіть копію каталогу layout
+
+Налаштуйте елементи з класом card так, щоб вони пропорційно ділили між собою весь доступний 
+простір та мали базовий розмір, визначений змінною --min. */
+
+body {
+    --padding: 5vw;
+    --max-width: 180ch;
+
+}
+
+ul {
+    list-style: none;
+}
+
+.flexbox {
+    --min: 30ch;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: var(--padding);
+    max-width: var(--max-width);
+}
+
+.card {
+    flex: 0 0 var(--min);
+}

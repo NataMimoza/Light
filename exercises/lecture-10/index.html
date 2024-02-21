@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        /* ======== 1 завдання==============
+        1. розподілити простір між елементами flex так, щоб вони мали однакову ширину та заповнювали весь доступний простір. Закоментуйте цей рядок.
+        2. Встановіть для елемента blue фактор зростання 3
+        3. Встановіть для елемента green фактор зростання 1
+        4. Розрахуйте в пікселях ширину кожного з елементів item-green, item-orange, item-blue*/
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            width: 700px;
+        }
+
+        .item-blue {
+            background-color: blue;
+            flex-grow: 3;
+            /* ширина дорівнює 400рх */
+        }
+
+        .item-orange {
+            background-color: orange;
+            /* ширина дорівнює 100рх */
+        }
+
+        .item-green {
+            background-color: green;
+            flex-grow: 1;
+            /* ширина дорівнює 200рх */
+        }
+
+        .item {
+            color: white;
+            width: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>CSS Flex Property</h2>
+    <div class="wrapper">
+        <div class="item item-blue">CSS</div>
+        <div class="item item-orange">Flex</div>
+        <div class="item item-green">Property</div>
+    </div>
+</body>
+
+</html>
