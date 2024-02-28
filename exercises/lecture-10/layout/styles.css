@@ -23,6 +23,6 @@ ul {
     max-width: var(--max-width);
 }
 
-.card {
-    flex: 0 0 var(--min);
+.flexbox>* {
+    flex: 1 1 var(--min);
 }

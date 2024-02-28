@@ -18,9 +18,9 @@
 
 
 /* створити grid-контейнер з чотирьох стовпців однакової ширини та розмістити стовпці в центрі контейнера */
-.grid-container {
+main {
     display: grid;
-    grid-template-columns: repeat(4, 15%);
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
 }
 
