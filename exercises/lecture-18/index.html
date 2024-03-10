@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    - функція checkAge повертає true, якщо параметр age перевищує 18.
+    - в іншому випадку запитує підтвердження та повертає результат:
+
+    <script>
+        // 1. Перепишіть функцію checkAge, видаливши else.
+        // Чи буде функція працювати інакше, якщо видалити else?
+        // Чи є різниця в поведінці цих двох варіантів і чому ?
+
+        // function checkAge(age) {
+        //     if (age > 18) {
+        //         return true;
+        //     } else {
+        //         // ...
+        //         return confirm('Did parents allow you?');
+        //     }
+        // }
+
+        function checkAge(age) {
+            if (age > 18) {
+                return true;
+            }
+            return confirm('Did parents allow you?');
+        }          // В обох варіантах функція працює однаково. 
+
+        // ==============================================
+        // 2. Наступна функція повертає true, якщо параметр age перевищує 18.
+        //  В іншому випадку запитує підтвердження та повертає результат. 
+
+        function checkAge(age) {
+            if (age > 18) {
+                return true;
+            } else {
+                return confirm('Did parents allow you?');
+            }
+        }
+
+        // Перепишіть функцію checkAge, використовуючи '?'
+        function checkAge(age) {
+            return (age > 18) ? true : confirm('Did parents allow you?');
+        }
+
+        // Перепишіть функцію checkAge, використовуючи '||'
+        function checkAge(age) {
+            return age > 18 || confirm('Did parents allow you?');
+        }
+
+        // ===================================
+        // 3. Чи потрібні дужки навколо age > 18
+
+        return (age > 18) || confirm('Did parents allow you?'); // не потрібні
+
+        // =================================
+        // 4. Напишіть функцію min(a,b), яка повертає найменше з двох чисел a і b. У випадку 
+        // рівності a == b немає значення, що повертати. Наприклад:
+        // min(2, 5) == 2
+        // min(3, -1) == -1
+        // min(1, 1) == 1
+
+        // реалізуйте функцію min, використовуючи оператор if else
+        function getMin(a, b) {
+            if (a < b) {
+                return a;
+            } else {
+                return b;
+            }
+        }
+        console.log(getMin(2, 5));
+        console.log(getMin(3, -1));
+        console.log(getMin(1, 1));
+
+        // реалізуйте функцію min, використовуючи тернарний оператор
+        function getMin(a, b) {
+            return a < b ? a : b;
+        }
+
+        //==============================================
+        // 5. Напишіть функцію pow(x,n), яка повертає x у ступені n. Або, іншими словами,
+        // множить x на себе n разів і повертає результат. У цьому завданні функція повинна
+        // підтримувати лише натуральні значення n: цілі числа від 1.
+        // pow(3, 2) = 3 * 3 = 9
+        // pow(3, 3) = 3 * 3 * 3 = 27
+        // pow(1, 100) = 1 * 1 * ...* 1 = 1
+        // Створіть сценарій, де спочатку користувачу пропонують ввести x і n, а потім показують результат
+        //  pow(x,n), або повідомлення про неправильне значення параметра n.
+
+        function pow(x, n) {
+            let result = 1;
+            for (let i = 1; i <= n; i++) {
+                result *= x;
+            }
+            return result;
+        }
+        // console.log(pow(1, 100));
+
+        let x = prompt("Enter x:");
+        let n = prompt('Enter n:');
+        let result = pow(x, n);
+
+        if (n < 1) {
+            alert('Incorrect value n: n must be > 0');
+        } else {
+            alert(result);
+        }
+        // ================================================
+        // 6. Переписати функцію ask, використовуючи функцію стрілок:
+        // function ask(question, yes, no) {
+        //     if (confirm(question)) yes();
+        //     else no();
+        // }
+
+        let ask = (question, yes, no) => {
+            confirm(question) ? yes() : no();
+        };
+
+        // =================================
+        // 7. Переписати функцію ask, використовуючи функціональний вираз:
+        // function ask(question, yes, no) {
+        //     if (confirm(question)) yes();
+        //     else no();
+        // }
+        (function ask(question, yes, no) {
+            if (confirm(question)) yes();
+            else no();
+        })();
+
+        // ====================================
+        // 8. Маємо 3 функції.
+        function A() { console.log('A was called'); return undefined; }
+        function B() { console.log('B was called'); return false; }
+        function C() { console.log('C was called'); return "foo"; }
+        //Яким чином виконати виклик функцій A() і C(), щоб на консолі отримати такий результат A was called
+        //C was called foo;
+        //Яким чином виконати виклик функцій B() і C(), щоб на консолі отримати такий результат B was called
+        //C was called foo
+
+        (function () {
+            A();
+            C();
+        })();
+
+        (function () {
+            B();
+            C();
+        })();
+
+    </script>
+
+
+</body>
+
+</html>
