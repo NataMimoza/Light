@@ -13,8 +13,8 @@
     <script>
         // 1. Визначити результат наступних логічних виразів:
 
-        let x = 3
-        let y = 4
+        // let x = 3
+        // let y = 4
 
         x == 3         //результат: true
         x === "3"      //результат: false
@@ -26,7 +26,7 @@
         y < 5          //результат: true
         y <= 2         //результат: false
         1 == true      //результат: true
-        null == undefined       // результат: false
+        null == undefined       // результат: true
         NaN == NaN              // результат: false
         // ====================================
         // 2. Визначити результат наступних логічних виразів:
@@ -38,9 +38,10 @@
         x ||= y;              //результат: x = 3
         x || (y = z);         //результат: x = 3
         x &&= y;              //результат: x = 4
-        x && (y = z);        // результат: x = 4, y = 5
-        x ??= y;              //результат: x = 3
-        x ?? (y = z);         //результат: x = 3, y = 5
+        x && (y = z);      // результат: x = 5
+        x ??= y;           //результат: x = 4
+        x ?? (y = z);      //результат: x = 4
+
         // ==============================
 
         // 3. Напишіть програму, що пропонує користувачеві вгадати якесь число, наприклад 3. У разі успіху, потрібно
@@ -48,15 +49,28 @@
         // Якщо число більше за 3, потрібно вивести повідомлення користувачеві, наприклад - 'The number is too long'
         //  Якщо число менше за 3, потрібно вивести повідомлення користувачеві, наприклад - 'The number is short'
 
-        let num = 0;
+        //     let num = 0;   зберегу собі для порівняння)))
 
-        if (num == 3) {
-            console.log('Congratulations, You did it!');
-        } else if (num > 3) {
-            console.log('The number is too long');
-        } else {
-            console.log('The number is short')
-        };
+        // if (num == 3) {
+        //     console.log('Congratulations, You did it!');
+        // } else if (num > 3) {
+        //     console.log('The number is too long');
+        // } else {
+        //     console.log('The number is short')
+        // };
+
+        const number = 3;
+
+        let guess = prompt("Guess the number")
+        if (+guess > number) {
+            alert('The number is too long');
+        } else if (+guess < number) {
+            alert('The number is short');
+        }
+        else {
+            alert('Congratulations, You did it!');
+        }
+
         // =================================
         // 4. Напишіть програму, що пропонує користувачеві ввести назву дня тижня, наприклад - Понеділок. Якщо користувач
         //  ввів Понеділок або Monday, вивести повідомлення "Start of the work week!" Якщо користувач ввів П'ятниця або
@@ -129,10 +143,9 @@
 
         let firstName = null;
         let lastName = undefined;
-        let username = firstName || lastName || "Guest";
+        let username = (firstName || lastName) ?? "Guest";
 
         console.log(username); // "Guest"
-
 
     </script>
 
