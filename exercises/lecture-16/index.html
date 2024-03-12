@@ -56,12 +56,10 @@
         // console.log(a + b);
         // // Uncaught TypeError: can't convert BigInt to number
 
-        let a = 9007199254740991;
+        let a = 9007199254740991n;
         let b = 9007199254740991n;
 
-        let new_b = Number(b);
-
-        console.log(a + new_b);
+        console.log(a + b);
 
     </script>
     <script>
@@ -90,7 +88,7 @@
         let c = ++a;
         let d = b++;
 
-        //  кінцеві значення а = 1, b = 1, c = 2, d = 2
+        //  кінцеві значення а = 2, b = 2, c = 2, d = 1;
 
     </script>
     <script>
@@ -106,7 +104,7 @@
         'use strict';
         // Які результати цих виразів?
 
-        // "" + 1 + 0    результат = 1
+        // "" + 1 + 0    результат = "10"
         // "" - 1 + 0    результат = -1
         // true + false   результат = 1
         // 6 / "3"        результат = 2
