@@ -145,15 +145,18 @@
         //Яким чином виконати виклик функцій B() і C(), щоб на консолі отримати такий результат B was called
         //C was called foo
 
-        (function () {
-            A();
-            C();
-        })();
+        // (function () {
+        //     A();
+        //     C();
+        // })();
 
-        (function () {
-            B();
-            C();
-        })();
+        // (function () {
+        //     B();
+        //     C();
+        // })();
+
+        console.log(A() ?? C());
+        console.log(B() || C());
 
     </script>
 
