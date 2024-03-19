@@ -2,12 +2,12 @@
 let str1 = 'I\'m a string!';
 let str2 = "I'm a string!";
 // Чи мають рядки str1 та str2 однакову довжину. Перевірити на рівність (недбалу та строгу) рядки str1 та str2.
-console.log(str1.length); // довжинa 13
-console.log(str2.length); // довжинa 13
+console.log(str1.length === str2.length); // true
 
-console.log(str1 == str2); // true
-console.log(str1 === str2); // true
-console.log(str1.localeCompare(str2)); // 0
+// console.log(str1.length); // довжинa 13
+// console.log(str2.length); // довжинa 13
+// console.log(str1 == str2); // true
+// console.log(str1.localeCompare(str2)); // 0
 
 // ===========================================
 // 2. Повернути перший символ рядка string5. Виконайте завдання, використовуючи індекс та метод charAt.
@@ -21,8 +21,10 @@ console.log(string5.charAt(0));
 
 let str3 = "Hello Javascript";
 
-console.log(str3.indexOf('J')); // 6
-console.log(str3.charAt(6)); // 'J'
+console.log(str3[6]); // 'J'
+
+// console.log(str3.indexOf('J')); // 6
+// console.log(str3.charAt(6)); // 'J'
 
 // ======================================
 // 4. Використовуючи індекс, отримати доступ до останнього символу рядка двома способами:
@@ -40,16 +42,16 @@ function lastChar1(str) {                  // 1 варіант
     return str[str.length - 1];
 }
 
-let str4 = "Hello Javascript";
-console.log(lastChar1(str4));
+// let str4 = "Hello Javascript";
+// console.log(lastChar1(str4));
 
 
 function lastChar2(str) {                  // 2 варіант
     return str.charAt(str.length - 1);
 }
 
-let str4 = "Hello Javascript";
-console.log(lastChar2(str4));
+// let str4 = "Hello Javascript";
+// console.log(lastChar2(str4));
 
 
 function lastChar3(str) {                    // 3 варіант
@@ -83,8 +85,8 @@ console.log(fact + ' ' + (c + 10));
 let firstName = "Tom";
 let lastName = "Cat";
 
-function getFullName() {
-    console.log(firstName + ' ' + lastName);
+function getFullName(firstName, lastName) {
+    return firstName + ' ' + lastName;
 }
 getFullName();
 
@@ -105,14 +107,16 @@ greeting();
 // ========================================
 // 10. Використовуючи функцію greeting, створити такий шаблон: <div><h1>Hello, Tom Cat!</h1></div>
 
-function greeting() {
-    let message = "<div><h1>Hello, Tom Cat!</h1></div>";
-    return message;
-}
+// function greeting() {
+//     let message = "<div><h1>Hello, Tom Cat!</h1></div>";
+//     return message;
+// }
 
-let hello = greeting();
-document.getElementById('greeting').innerHTML = hello;
+// let hello = greeting();
+// document.getElementById('greeting').innerHTML = hello;
 
+let template = (" " + " " + greeting(firstName, lastName) + " " + " ");
+console.log(template);
 // ===============================
 // 11. Маємо наступний код:
 // Потрібно отримати такі результати
@@ -145,7 +149,9 @@ let sentence = 'Always look on the bright side of life';
 
 console.log(sentence.includes('look up')); //false
 console.log(sentence.includes('look on')); // true
-console.log(sentence.slice(8).includes('look on')); //false
+console.log(sentence.includes('look on', 8)); //false
+
+// console.log(sentence.slice(8).includes('look on')); //false
 
 // ===============================
 // 13. Маємо наступний код.
@@ -156,7 +162,7 @@ console.log(sentence.slice(8).includes('look on')); //false
 let sentence1 = 'Always look on the bright side of life';
 
 console.log(sentence1.indexOf('l')); //1
-console.log(sentence1.indexOf('l', 3)); //7
+console.log(sentence1.indexOf('l', 2)); //7
 console.log(sentence1.indexOf('L')); // -1
 
 // ================================
@@ -175,8 +181,11 @@ console.log(sentence2.substring(7, 11));
 // 15. Створити регулярний вираз, який призначений для перевірки імені користувача, що може містити цифри,
 // літери у нижньому регістрі та символи - і _.Довжину імені користувача встановити від 8 до 16 знаків.
 
-let userName = /^(?=.*[-_])[a-z0-9-_]{8,16}$/;
+let pattern = /^[a-z0-9-]{8,16}$/;
+let user = "tom_cat1";
 
+const found = user.match(pattern);
+console.log(found);
 // ======================================
 // 16. Створити регулярний вираз, який призначений для перевірки email на коректність.
 
