@@ -19,7 +19,8 @@ const person1 = {
     },
     age: 16,
 }
-console.log(person1.name);
+console.log(person1.name.firstName);
+console.log(person1.name.lastName);
 // ================================
 // 3. Створити метод об'єкту bio(), що виводить на консоль ім'я, прізвище та вік person.
 
@@ -29,9 +30,9 @@ const person2 = {
     age: 16,
 
     bio() {
-    console.log(`name: ${this.name}`);
-    console.log(`surname: ${this.surname}`);
-    console.log(`age: ${this.age}`);
+    console.log(`${this.name} ${this.surname} is ${this.age} years old.`);
+    // console.log(`surname: ${this.surname}`);
+    // console.log(`age: ${this.age}`);
   },
 }
 
@@ -73,25 +74,23 @@ person12.introduceSelf();
 // 6. Створити функцію-конструктор Person, що приймає аргумент name та повертає новий об'єкт з властивістю
 // name та методом introduceSelf.Створити за допомогою Person 2 екземпляри об'єкта mary та tom.
 
-function person20(name) {
-    return {
-        name,
-        introduceSelf() {
-            console.log(`I am ${this.name}`);
-        },
+function Person(name) {
+    this.name = name;
+    this.introduceSelf = function () {
+        console.log(`I am ${this.name}`);
     };
 }
 
-const person21 = createPerson('Mary');
-const person22 = createPerson('Tom');
+const Mary = new Person('Mary');
+const Tom = new Person('Tom');
 
-person21.introduceSelf();
-person22.introduceSelf();
+Mary.introduceSelf();
+Tom.introduceSelf();
 // визначити, чи містить об'єкт mary властивість під назвою prop.
 
-const mary = new person20('Mary');
+// const mary = new person20('Mary');
 
-if ("prop" in mary) {
+if ("prop" in Mary) {
   console.log("Mary has prop");
 } else {
   console.log("Mary don\'t has prop"); 
@@ -107,12 +106,12 @@ if ("prop" in mary) {
 //   fluid ounces - одиниця ваги avoirdupois - одна шістнадцята фунта (28.4131 грамів).
 // Офіційно dash становить приблизно 1 мл, 10 крапель або 1 / 5 чайної ложки.
 
-// Створіть об'єкт DirtyMartini, що має 2 методи english_please() та excuse_my_french() При виклику методу 
+// Створіть об'єкт DirtyMartini, що має 2 методи english_please() та excuse_my_french() При виклику методу
 // excuse_my_french(), на консоль виводиться:
 
-//       ingrédients:  
+//       ingrédients:
 //         170.4786 ml de gin
-//         1 trait de vermouth sec (0.0351951ml) 
+//         1 trait de vermouth sec (0.0351951ml)
 //         28.4131 ml de saumure du pot d'olive
 //         4 olives vertes farcies
 
@@ -120,34 +119,51 @@ if ("prop" in mary) {
 
 //       ingredients:
 //         6 fluid ounces gin
-//         1 dash dry vermouth (0.0351951ml) 
+//         1 dash dry vermouth (0.0351951ml)
 //         1 fluid ounce brine from olive jar
 //         4 stuffed green olives
 
+
 const DirtyMartini = {
-    ingredients: {
-        gin: 6,
-        vermouth: 1,
-        brine: 1,
-        olives: 4,
-    },
-
-    excuse_my_french() {
-        console.log(`ingrédients:`);
-        console.log(`${this.ingredients.gin} ml de gin`);
-        console.log(`${this.ingredients.vermouth} trait de vermouth sec (0.0351951ml)`);
-        console.log(`${this.ingredients.brine} ml de saumure du pot d'olive`);
-        console.log(`${this.ingredients.olives} olives vertes farcies`);
-    },
-
-    english_please() {
-        console.log(`ingredients:`);
-        console.log(`${this.ingredients.gin} fluid ounces gin`);
-        console.log(`${this.ingredients.vermouth} dash dry vermouth (0.0351951ml)`);
-        console.log(`${this.ingredients.brine} fluid ounce brine from olive jar`);
-        console.log(`${this.ingredients.olives} stuffed green olives`);
-  },
+    fluid_ounce: 28.4131,
+dash: 0.0351951,
+english_please() {
+    return `ingredients: 6 fluid ounces gin, 1 dash dry vermouth (${this.dash}ml), 1 fluid ounce brine from olive jar, 
+4 stuffed green olives`
+},
+excuse_my_french() {
+    return `ingrédients: ${this.fluid_ounce * 6}ml de gin, 1 trait de vermouth sec (${this.dash}ml),  ${this.fluid_ounce} 
+ml de saumure du pot d'olive, 4 olives vertes farcies`
+},
 };
+console.log(DirtyMartini.excuse_my_french());
+console.log(DirtyMartini.english_please());
+
+
+// const DirtyMartini = {
+//     ingredients: {
+//         gin: 6,
+//         vermouth: 1,
+//         brine: 1,
+//         olives: 4,
+//     },
+
+//     excuse_my_french() {
+//         console.log(`ingrédients:`);
+//         console.log(`${this.ingredients.gin} ml de gin`);
+//         console.log(`${this.ingredients.vermouth} trait de vermouth sec (0.0351951ml)`);
+//         console.log(`${this.ingredients.brine} ml de saumure du pot d'olive`);
+//         console.log(`${this.ingredients.olives} olives vertes farcies`);
+//     },
+
+//     english_please() {
+//         console.log(`ingredients:`);
+//         console.log(`${this.ingredients.gin} fluid ounces gin`);
+//         console.log(`${this.ingredients.vermouth} dash dry vermouth (0.0351951ml)`);
+//         console.log(`${this.ingredients.brine} fluid ounce brine from olive jar`);
+//         console.log(`${this.ingredients.olives} stuffed green olives`);
+//   },
+// };
  
-DirtyMartini.excuse_my_french();
-DirtyMartini.english_please();
+// DirtyMartini.excuse_my_french();
+// DirtyMartini.english_please();
