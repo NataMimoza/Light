@@ -34,10 +34,10 @@ pThird.classList.add('third');
 // 5.Отримати четвертий абзац за допомогою document.querySelector('#id') за його ідентифікатором p4.
 //Призначити для нього класи fourth та border
 
-const pFourth = document.querySelector('#p4');
-pFourth.classList.add('fourth');
-pFourth.style.border = '5px dotted tomato';
+const pFourth = document.getElementById('p4');
+pFourth.classList.add('fourth', 'border');
 
+// pFourth.style.border = '5px dotted tomato';
 //==============================================
 // 6. Знайти всі елементи з класом container. Використовуючи цикл for, вивести на консоль перший елемент
 //для кожного зі знайдених елементів.
@@ -69,16 +69,31 @@ for (let i = 0; i < containers.length; i++){
 const headers = document.querySelectorAll('.container header');
 
 for (let i = 0; i < headers.length; i++) {
-    const header = headers[i];
-    const h1 = header.querySelector('h1');
+  let html = headers[i].firstElementChild;
 
-    if (i === 1) {
-    h1.outerHTML = '<h2>' + h1.innerHTML + '</h2>';
-  } else if (i === 2) {
-    h1.outerHTML = '<h3>' + h1.innerHTML + '</h3>';
-  } else if (i === 3) {
-    h1.outerHTML = '<h4>' + " class='title' id='fourth-title' "  + '</h4>';
-  }
+let text = html.textContent;
+let currentId = html.getAttribute('id');
+let currentClass = html.getAttribute('class');
+
+let newHtml = "<h"+(i+1)+">"+text+"</h"+(i+1)+">";
+
+headers[i].innerHTML = newHtml;
+headers[i].firstElementChild.setAttribute('id', currentId);
+headers[i].firstElementChild.setAttribute('class', currentClass);
+
+console.log(headers[i].firstElementChild.getAttribute('id')); 
+  console.log(headers[i].firstElementChild); 
+  
+  //   const header = headers[i];
+  //   const h1 = header.querySelector('h1');
+
+  //   if (i === 1) {
+  //   h1.outerHTML = '<h2>' + h1.innerHTML + '</h2>';
+  // } else if (i === 2) {
+  //   h1.outerHTML = '<h3>' + h1.innerHTML + '</h3>';
+  // } else if (i === 3) {
+  //   h1.outerHTML = '<h4>' + " class='title' id='fourth-title' "  + '</h4>';
+  // }
 }
 //Використовуючи цикл for для колекції headers та масив classes, додати до отриманих тегів - заголовків класи
 //таким чином:
@@ -91,16 +106,18 @@ const headerss = document.querySelectorAll('.container header');
 const classes = ['first', 'second', 'third', 'fourth'];
 
 for (let i = 0; i < headerss.length; i++) {
-    const header = headerss[i];
+  let h = document.querySelector('h'+(i+1));
+h.classList.add(classes[i]);
+//     const header = headerss[i];
 
-    const h1 = header.querySelector('h1');
-const h2 = header.querySelector('h2');
-  const h3 = header.querySelector('h3');
-  const h4 = header.querySelector('h4');
+//     const h1 = header.querySelector('h1');
+// const h2 = header.querySelector('h2');
+//   const h3 = header.querySelector('h3');
+//   const h4 = header.querySelector('h4');
 
-  h1.classList.add(classes[0]);
-  h2.classList.add(classes[1]);
-  h3.classList.add(classes[2]);
-  h4.classList.add(classes[3]);     
+//   h1.classList.add(classes[0]);
+//   h2.classList.add(classes[1]);
+//   h3.classList.add(classes[2]);
+//   h4.classList.add(classes[3]);     
 }
 
