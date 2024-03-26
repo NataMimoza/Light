@@ -1,0 +1,26 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid tomato;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+th {
+    background-color: blue;
+    color: azure;
+    padding: 5px;
+}
+
+td {
+    border: 1px solid tomato;
+    padding: 10px;
+}
