@@ -73,22 +73,34 @@ const darkBtn = document.querySelector('.btn-dark');
 const lightBtn = document.querySelector('.btn-light');
 
 function toggleMode() {
-    document.body.classList.toggle('dark-mode');
-
-    if (document.body.classList.contains('dark-mode')) {
-    darkBtn.style.display = 'block';
-    lightBtn.style.display = 'none';
-  } else {
-    darkBtn.style.display = 'none';
-    lightBtn.style.display = 'block';
-  }
+  let element = document.body;
+  element.classList.toggle('dark-mode');
+  darkBtn.classList.toggle('hide');
+  lightBtn.classList.toggle('hide');
 }
 
-const buttons = document.querySelectorAll('.btn');
+lightBtn.classList.toggle('hide');
 
-for (let button of buttons) {
-    button.addEventListener('click', toggleMode);
-}
+darkBtn.addEventListener('click', toggleMode);
+lightBtn.addEventListener('click', toggleMode);
+
+// function toggleMode() {
+//     document.body.classList.toggle('dark-mode');
+
+//     if (document.body.classList.contains('dark-mode')) {
+//     darkBtn.style.display = 'block';
+//     lightBtn.style.display = 'none';
+//   } else {
+//     darkBtn.style.display = 'none';
+//     lightBtn.style.display = 'block';
+//   }
+// }
+
+// const buttons = document.querySelectorAll('.btn');
+
+// for (let button of buttons) {
+//     button.addEventListener('click', toggleMode);
+// }
 
 // 6. Знайти на сторінці кнопку з класом btn-info. Додати до кнопки прослуховувач події "keypress". Написати
 // функцію обробки події keypress, що перевіряє, чи є натиснута клавіша, клавішею "Enter".Якщо це так, типову
@@ -122,11 +134,19 @@ for (const card of cards) {
 
 const allCards = document.querySelectorAll('.card');
 
-for (const card of allCards) {
-  const button = card.querySelector('.add-to-cart');
-  
-  button.addEventListener('click', function() {
-    const title = card.querySelector('.card-title');
-    console.log(title.textContent);
-  });
+for (let i = 0; i < cards.length; i++) {
+let addToCartButton = cards[i].querySelector('.add-to-cart');
+addToCartButton.addEventListener('click', function() {
+let title = cards[i].querySelector('.card-title').textContent;
+console.log(title);
+});
 }
+
+// for (const card of allCards) {
+//   const button = card.querySelector('.add-to-cart');
+  
+//   button.addEventListener('click', function() {
+//     const title = card.querySelector('.card-title');
+//     console.log(title.textContent);
+//   });
+// }
