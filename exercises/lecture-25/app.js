@@ -21,17 +21,22 @@ const listWithHref = [
     {'html': "https://developer.mozilla.org/en-US/docs/Web/HTML"}, 
     {'css': "https://developer.mozilla.org/en-US/docs/Web/CSS"}, 
     {'javascript': "https://developer.mozilla.org/en-US/docs/Web/JavaScript"}, 
-    {'react.js': "https://react.dev"}
+    {
+        'react.js': "https://react.dev",
+        'github': "https://github.com/couchjanus/web-dev-exercises/tree/main/exercises/lecture-25"
+    }
 ];
 const ol = document.getElementById('list_ol');
 
 for (let element of listWithHref) {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = Object.values(element)[0];
-    a.textContent = Object.keys(element)[0];
-    li.append(a);
-    ol.append(li);
+    for (let key in element) {        
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = element[key];
+        a.textContent = key;
+        li.append(a);
+        ol.append(li);
+    }
 }
 
 //================================================================   
@@ -45,43 +50,70 @@ const students = [
     {'firstName': 'John', 'lastName': 'Doe', 'degree': 400},
     {'firstName': 'James', 'lastName': 'Bond', 'degree': 700},
 ]
-const table = document.getElementById('students');
 
-const thead = document.createElement('thead');
-const tr = document.createElement('tr');
-const th1 = document.createElement('th');
-const th2 = document.createElement('th');
-const th3 = document.createElement('th');
+let table = document.createElement('table');
+document.body.append(table);
 
-th1.textContent = 'firstName';
-th2.textContent = 'lastName';
-th3.textContent = 'degree';
+let tr = document.createElement('tr');
+let thead = document.createElement('thead');
 
-tr.appendChild(th1);
-tr.appendChild(th2);
-tr.appendChild(th3);
-
-thead.appendChild(tr);
-
-table.appendChild(thead);
-
-const tbody = document.createElement('tbody');
-
-for (const student of students) {
-  const tr = document.createElement('tr');
-  const td1 = document.createElement('td');
-  const td2 = document.createElement('td');
-  const td3 = document.createElement('td');
-
-  td1.textContent = student.firstName;
-  td2.textContent = student.lastName;
-  td3.textContent = student.degree;
-
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  tr.appendChild(td3);
-
-  tbody.appendChild(tr);
+for (const key of Object.keys(students[0])) {
+let th = document.createElement('th');
+th.textContent = key;
+tr.append(th);
 }
+thead.append(tr);
+table.append(thead);
 
-table.appendChild(tbody);
+students.forEach(item => {
+let tr = document.createElement('tr');
+
+for (const value of Object.values(item)) {
+    let td = document.createElement('td');
+    td.textContent = value;    
+    
+    tr.append(td);
+}
+table.append(tr); 
+});
+
+// const table = document.getElementById('students');
+
+// const thead = document.createElement('thead');
+// const tr = document.createElement('tr');
+// const th1 = document.createElement('th');
+// const th2 = document.createElement('th');
+// const th3 = document.createElement('th');
+
+// th1.textContent = 'firstName';
+// th2.textContent = 'lastName';
+// th3.textContent = 'degree';
+
+// tr.appendChild(th1);
+// tr.appendChild(th2);
+// tr.appendChild(th3);
+
+// thead.appendChild(tr);
+
+// table.appendChild(thead);
+
+// const tbody = document.createElement('tbody');
+
+// for (const student of students) {
+//   const tr = document.createElement('tr');
+//   const td1 = document.createElement('td');
+//   const td2 = document.createElement('td');
+//   const td3 = document.createElement('td');
+
+//   td1.textContent = student.firstName;
+//   td2.textContent = student.lastName;
+//   td3.textContent = student.degree;
+
+//   tr.appendChild(td1);
+//   tr.appendChild(td2);
+//   tr.appendChild(td3);
+
+//   tbody.appendChild(tr);
+// }
+
+// table.appendChild(tbody);
