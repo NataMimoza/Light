@@ -1,0 +1,9 @@
+import { PostContext } from './Post';
+import { useContext } from 'react';
+
+function PostTitle() {
+    const post = useContext(PostContext);
+    return <>{post.title}</>
+}
+
+export default PostTitle;
